@@ -1,0 +1,32 @@
+{
+    "msopentech.azure.NotificationHub": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Austin\\Desktop\\AzureNotificationHubsPlugin"
+        }
+    },
+    "com.matd.coolplugin": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Austin\\Desktop\\CoolPlugin"
+        }
+    },
+    "com.test.pushNotificationPlugin": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Austin\\Desktop\\pushNotificationPlugin\\pushplugin"
+        }
+    },
+    "com.test.push": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Austin\\Desktop\\pushNotificationPlugin\\pushplugin"
+        }
+    },
+    "com.test.PushNotification": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Users\\Austin\\Desktop\\pushNotificationPlugin\\PushNotification"
+        }
+    }
+}
