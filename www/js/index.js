@@ -34,31 +34,30 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-		
 		var connectionString = "Endpoint=sb://austinsnotificationhub2-ns.servicebus.windows.net/;SharedAccessKeyName=DefaultListenSharedAccessSignature;SharedAccessKey=aLkUJUoD6SxBTpcGrKrLwT6y5hMPssCOjhWuW8j1IdQ=",
-            notificationHubPath = "austinsnotificationhub2";
-			
-		var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString);
+		notificationHubPath = "austinsnotificationhub2",
+		sender_id = "730194827269";
 		
-		hub.registerApplicationAsync().then(
-            function (result) {
-                console.log("Registration successful: " + result.registrationId);
-				alert("success");
-            },
-            function (error) {
-                console.log("Registration failed: " + error);
-				alert(error);
-            });
-		
-		hub.onPushNotificationReceived = function (msg) {
-			alert.log("recieved");
-            console.log("onPushNotificationReceived: " + msg);
-        };
 		alert("test");
-		
+
+		var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString, sender_id);
+
+		hub.registerApplicationAsync().then(function (result) {
+			
+			//console.log("Registration successful: " + result.registrationId);
+			alert("Registration successful: " + result.registrationId/*JSON.stringify(result)*/);
+		},
+		function (error) {
+                //console.log("Registration failed: " + JSON.stringify(error));
+				alert(JSON.stringify(error));
+		});
+
+		hub.onPushNotificationReceived = function (msg) {
+			//console.log("Push Notification received: " + JSON.stringify(msg));
+			alert(msg.message);
+		};
     },
     // Update DOM on a Received Event
-	/*
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
@@ -69,7 +68,6 @@ var app = {
 
         console.log('Received Event: ' + id);
     }
-	*/
 };
 
 app.initialize();

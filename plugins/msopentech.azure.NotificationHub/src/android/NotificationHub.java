@@ -34,7 +34,7 @@ public class NotificationHub extends CordovaPlugin {
             if (action.equals("registerApplication")) {   
                     String hubName = args.getString(0);
                     String connectionString = args.getString(1);
-                    String senderId = args.getString(4);
+                    String senderId = args.getString(4);//"730194827269";//args.getString(4);//FIX DONE HERE
                     registerApplication(hubName, connectionString, senderId);
                     return true;
             }
