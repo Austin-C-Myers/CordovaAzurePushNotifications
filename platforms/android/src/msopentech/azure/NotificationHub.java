@@ -12,9 +12,11 @@ import org.json.JSONObject;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.microsoft.windowsazure.messaging.NativeRegistration;
+
 
 /**
  * Apache Cordova plugin for Windows Azure Notification Hub
@@ -34,7 +36,7 @@ public class NotificationHub extends CordovaPlugin {
             if (action.equals("registerApplication")) {   
                     String hubName = args.getString(0);
                     String connectionString = args.getString(1);
-                    String senderId = args.getString(4);//"730194827269";//args.getString(4);//FIX DONE HERE
+                    String senderId = args.getString(4);
                     registerApplication(hubName, connectionString, senderId);
                     return true;
             }
@@ -129,6 +131,8 @@ public class NotificationHub extends CordovaPlugin {
                 PluginResult result = new PluginResult(PluginResult.Status.OK, json);
                 result.setKeepCallback(true);
                 NotificationHub.getCallbackContext().sendPluginResult(result);
+				Toast.makeText(context, "TESSSSST", Toast.LENGTH_LONG).show();
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

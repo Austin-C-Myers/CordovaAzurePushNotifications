@@ -38,7 +38,7 @@ var app = {
 		notificationHubPath = "austinsnotificationhub2",
 		sender_id = "730194827269";
 		
-		alert("test");
+		//alert("test");
 
 		var hub = new WindowsAzure.Messaging.NotificationHub(notificationHubPath, connectionString, sender_id);
 
@@ -46,6 +46,7 @@ var app = {
 			
 			//console.log("Registration successful: " + result.registrationId);
 			alert("Registration successful: " + result.registrationId/*JSON.stringify(result)*/);
+			//Toast.makeText(getApplicationContext(), result.registrationId, Toast.LENGTH_LONG).show();
 		},
 		function (error) {
                 //console.log("Registration failed: " + JSON.stringify(error));
@@ -55,6 +56,7 @@ var app = {
 		hub.onPushNotificationReceived = function (msg) {
 			//console.log("Push Notification received: " + JSON.stringify(msg));
 			alert(msg.message);
+			//Toast.makeText(getApplicationContext(), msg.message, Toast.LENGTH_LONG).show();
 		};
     },
     // Update DOM on a Received Event
