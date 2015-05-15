@@ -157,7 +157,7 @@ public class NotificationHub extends CordovaPlugin {
 			NotificationCompat.Builder mBuilder;
 			mNotificationManager = (NotificationManager)
 					  ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-
+			Log.i(TAG, "builder built");
 			//PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
 			//	  new Intent(ctx, ToDoActivity.class), 0);
 
@@ -168,9 +168,10 @@ public class NotificationHub extends CordovaPlugin {
 				  .setStyle(new NotificationCompat.BigTextStyle()
 							 .bigText(msg))
 				  .setContentText(msg);
-
+			Log.i(TAG, "builder initialized");
 			 //mBuilder.setContentIntent(contentIntent);
 			 mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+			 Log.i(TAG, "notified");
 		}
         
     }
